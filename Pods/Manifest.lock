@@ -1,0 +1,22 @@
+PODS:
+  - Crashlytics (3.9.3):
+    - Fabric (~> 1.7.2)
+  - Fabric (1.7.2)
+  - MBProgressHUD (1.1.0)
+  - UIImage-Helpers (0.0.3)
+
+DEPENDENCIES:
+  - Crashlytics
+  - Fabric
+  - MBProgressHUD (~> 1.1.0)
+  - UIImage-Helpers
+
+SPEC CHECKSUMS:
+  Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
+  Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  UIImage-Helpers: 06b04a42bdd222844035602e87e936765c80f620
+
+PODFILE CHECKSUM: 63a80d931cabdb448c4aa3a4b8b703e3a3ef7ff4
+
+COCOAPODS: 1.4.0

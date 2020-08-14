@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17C205" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Thin</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HeaderView" customModule="EPRI_FEM" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="30"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CyZ-0Y-Kal" userLabel="BackgroundView">
+                    <rect key="frame" x="0.0" y="0.0" width="500" height="30"/>
+                    <color key="backgroundColor" red="0.23921568630000001" green="0.23529411759999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Header Label&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dvm-XN-BbI">
+                    <rect key="frame" x="10" y="5" width="485" height="20"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
+                    <color key="textColor" red="0.58431372550000005" green="0.59607843140000005" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NSR-ti-I0B" userLabel="Divider View" customClass="StyledContainer" customModule="EPRI_FEM" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="30" width="500" height="0.0"/>
+                    <color key="backgroundColor" red="0.58431372550000005" green="0.59607843140000005" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="EP2-A5-sMn"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                            <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                            <size key="value" width="0.0" height="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="CyZ-0Y-Kal" secondAttribute="bottom" id="4rB-Rp-aRh"/>
+                <constraint firstAttribute="trailing" secondItem="Dvm-XN-BbI" secondAttribute="trailing" constant="5" id="Xn6-Ql-fGK"/>
+                <constraint firstItem="Dvm-XN-BbI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="Xz7-wa-lup"/>
+                <constraint firstItem="NSR-ti-I0B" firstAttribute="top" secondItem="Dvm-XN-BbI" secondAttribute="bottom" constant="5" id="YqS-Un-ebt"/>
+                <constraint firstAttribute="trailing" secondItem="NSR-ti-I0B" secondAttribute="trailing" id="cyr-RF-fSV"/>
+                <constraint firstAttribute="bottom" secondItem="NSR-ti-I0B" secondAttribute="bottom" id="dWM-eY-Uug"/>
+                <constraint firstItem="Dvm-XN-BbI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="doJ-fm-Jvt"/>
+                <constraint firstAttribute="trailing" secondItem="CyZ-0Y-Kal" secondAttribute="trailing" id="lmm-Lk-8xS"/>
+                <constraint firstItem="NSR-ti-I0B" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="na4-2m-1Dw"/>
+                <constraint firstItem="CyZ-0Y-Kal" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="oMP-14-Zww"/>
+                <constraint firstItem="CyZ-0Y-Kal" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="obB-RM-wr4"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="NO"/>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="headerLabel" destination="Dvm-XN-BbI" id="7fB-ak-0e4"/>
+            </connections>
+            <point key="canvasLocation" x="276" y="216"/>
+        </view>
+    </objects>
+</document>

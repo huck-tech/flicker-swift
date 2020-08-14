@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G1036" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </array>
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Thin</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NavigationBarStatusView" customModule="FEM" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Title&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSu-bH-ZVz">
+                    <rect key="frame" x="5" y="0.0" width="190" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="4OO-gK-r7O"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;value&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aq-OE-AyA">
+                    <rect key="frame" x="5" y="18" width="190" height="22"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="0aq-OE-AyA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="HwG-QD-Giw"/>
+                <constraint firstAttribute="trailing" secondItem="0aq-OE-AyA" secondAttribute="trailing" constant="5" id="Zp7-s3-cdZ"/>
+                <constraint firstAttribute="bottom" secondItem="0aq-OE-AyA" secondAttribute="bottom" id="ggg-tu-Ch7"/>
+                <constraint firstAttribute="trailing" secondItem="nSu-bH-ZVz" secondAttribute="trailing" constant="5" id="h3l-HQ-IcG"/>
+                <constraint firstItem="0aq-OE-AyA" firstAttribute="top" secondItem="nSu-bH-ZVz" secondAttribute="bottom" constant="-2" id="kUd-bo-vjI"/>
+                <constraint firstItem="nSu-bH-ZVz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="ufh-Od-MeM"/>
+                <constraint firstItem="nSu-bH-ZVz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="w9f-tp-ulj"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="titleLabel" destination="nSu-bH-ZVz" id="Ruv-kf-8VT"/>
+                <outlet property="valueLabel" destination="0aq-OE-AyA" id="cfm-4b-QPQ"/>
+            </connections>
+            <point key="canvasLocation" x="788" y="434"/>
+        </view>
+    </objects>
+</document>

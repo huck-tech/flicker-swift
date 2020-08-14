@@ -1,0 +1,170 @@
+# Customise this file, documentation can be found here:
+# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
+# All available actions: https://docs.fastlane.tools/actions
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+# update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "2.79.0"
+
+default_platform :ios
+
+platform :ios do
+  before_all do
+    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+    # cocoapod
+    
+  end
+
+  desc "Upload dSYMs to Crashlytics"
+  lane :refresh_dsyms do
+
+    ENV["LANE_NAME"] = "refresh_dsyms"
+    ENV["BUNDLE_ID"] = "com.epri.fem"
+    ENV["SCHEME_NAME"] = "Flicker"
+    ENV["TEAM_NAME"] = "Electric Power Research Institute"
+
+    slack(
+    message: "Downloading dSYMs from iTunesConnect",
+    default_payloads: [],
+    slack_url: ENV["SLACK_URL"]
+    )
+
+    download_dsyms(
+    app_identifier: ENV["BUNDLE_ID"],
+    team_name: ENV["TEAM_NAME"],
+    )                  # Download dSYM files from iTC
+
+    slack(
+    message: "Uploading dSYMs to Crashlytics",
+    default_payloads: [],
+    slack_url: ENV["SLACK_URL"]
+    )
+
+    upload_symbols_to_crashlytics   # Upload them to Crashlytics
+
+    slack(
+    message: "Cleaning up...",
+    default_payloads: [],
+    slack_url: ENV["SLACK_URL"]
+    )
+
+    clean_build_artifacts           # Delete the local dSYM files
+
+    slack(
+    message: "Finished uploading dSYMs to Crashlytics!",
+    default_payloads: [],
+    slack_url: ENV["SLACK_URL"]
+    )
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+
+    ENV["LANE_NAME"] = "Flicker"
+    ENV["BUNDLE_ID"] = "com.epri.fem"
+    ENV["SCHEME_NAME"] = ENV["LANE_NAME"]
+    ENV["TEAM_NAME"] = "Electric Power Research Institute"
+
+    slack(
+    message: ENV["LANE_NAME"] + ") Starting manual testing on " + sh("git rev-parse --abbrev-ref HEAD") + " - " + sh("git rev-parse HEAD"),
+    slack_url: ENV["SLACK_URL"]
+    )
+
+    scan(
+    scheme: ENV["SCHEME_NAME"],
+    slack_url: ENV["SLACK_URL"]
+    ) # run tests
+
+    slack(
+    message: "Finished manually testing",
+    default_payloads: [],
+    slack_url: ENV["SLACK_URL"]
+    )
+
+  end
+
+  desc "Tests, builds and uploads to iTunesConnect"
+  lane :appstore do
+
+    ENV["LANE_NAME"] = "Flicker"
+    ENV["BUNDLE_ID"] = "com.epri.fem"
+    ENV["SCHEME_NAME"] = ENV["LANE_NAME"]
+    ENV["TEAM_NAME"] = "Electric Power Research Institute"
+
+    runConfiguration()
+
+  end
+
+  def runConfiguration()
+
+    slack(
+    message: ENV["LANE_NAME"] + ") Incoming from branch " + sh("git rev-parse --abbrev-ref HEAD") + " - " + sh("git rev-parse HEAD"),
+    slack_url: ENV["SLACK_URL"]
+    )
+
+    sigh(team_name: ENV["TEAM_NAME"],
+         app_identifier: ENV["BUNDLE_ID"],
+         skip_certificate_verification: true) # Update Provisioing Profiles / Code Signing
+
+    slack(
+    message: "Finished updating provisioing profiles",
+    default_payloads: [],
+    slack_url: ENV["SLACK_URL"]
+    )
+
+    scan(
+    scheme: ENV["SCHEME_NAME"],
+    slack_url: ENV["SLACK_URL"]
+    ) # run tests
+
+    gym(scheme: ENV["SCHEME_NAME"],
+        clean: true) # build the app
+
+    slack(
+    message: "Finished building app",
+    default_payloads: [],
+    slack_url: ENV["SLACK_URL"]
+    )
+
+    pilot(skip_submission: true,
+          team_name: ENV["TEAM_NAME"])  #upload to test flight
+
+    slack(
+    message: "Finished archiving and uploading to iTunesConnect",
+    default_payloads: [],
+    slack_url: ENV["SLACK_URL"]
+    )
+
+  end
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+
+    # slack(
+    #   message: "Successfully deployed new App Update."
+    # )
+  end
+
+  error do |lane, exception|
+    slack(
+    message: exception.message,
+    default_payloads: [],
+    slack_url: ENV["SLACK_URL"]
+    )
+  end
+
+end
+
+
+# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
+# All available actions: https://docs.fastlane.tools/actions
+
+# fastlane reports which actions are used
+# No personal data is recorded. Learn more at https://github.com/fastlane/enhancer

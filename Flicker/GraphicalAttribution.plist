@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Use</key>
+		<string>Limits Icon</string>
+		<key>Author</key>
+		<string>Webalys</string>
+	</dict>
+	<dict>
+		<key>Use</key>
+		<string>Modal Close Icon</string>
+		<key>Author</key>
+		<string>Freepik</string>
+	</dict>
+	<dict>
+		<key>Use</key>
+		<string>Info Icon</string>
+		<key>Author</key>
+		<string>Freepik</string>
+	</dict>
+	<dict>
+		<key>Use</key>
+		<string>UITabBar electric arc furnace icon</string>
+		<key>Author</key>
+		<string>Freepik</string>
+	</dict>
+	<dict>
+		<key>Use</key>
+		<string>UITabBar repetitive load icon</string>
+		<key>Author</key>
+		<string>Freepik</string>
+	</dict>
+	<dict>
+		<key>Use</key>
+		<string>Hamburger Menu Icon</string>
+		<key>Author</key>
+		<string>Freepik</string>
+	</dict>
+	<dict>
+		<key>Use</key>
+		<string>Limit Icon</string>
+		<key>Author</key>
+		<string>Freepik</string>
+	</dict>
+</array>
+</plist>
